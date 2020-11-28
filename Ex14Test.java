@@ -1,4 +1,3 @@
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -81,7 +80,15 @@ public class Ex14Test
             { false, true, true, true, false },
             { false, false, true, false, false },
             { false, false, false, false, true },
-        };
+        }; // 3
+
+    boolean [][] mat7 =  {
+            { false, false, false, false, false },
+            { false, true, true, true, false },
+            { false, false, true, false, false },
+            { false, false, false, false, false },
+            { false, false, false, false, false },
+        }; // 1
     /**
      * Default constructor for test class Ex14Test
      */
@@ -123,7 +130,6 @@ public class Ex14Test
         assertEquals(Ex14.solutions(2), 0);
     }
 
-    /* will be soon - not good yet.
     @Test
     public void question4Tester() {
         assertEquals(Ex14.cntTrueReg(mat1), 3);
@@ -132,8 +138,8 @@ public class Ex14Test
         assertEquals(Ex14.cntTrueReg(mat4), 5);
         assertEquals(Ex14.cntTrueReg(mat5), 6);
         assertEquals(Ex14.cntTrueReg(mat6), 3);
+        assertEquals(Ex14.cntTrueReg(mat7), 1);
     }
-    */
 
     /**
      * Tears down the test fixture.
