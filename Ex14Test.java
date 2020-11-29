@@ -15,7 +15,7 @@ public class Ex14Test
     static int[] a = new int[] {6, 6, 18, 18, -4, -4, 12, 9, 9};
     static int[] b = new int[] {8, 8, -7, -7, 3, 3, 0, 0, 10, 10, 5, 5, 4};
     static int[] c = new int[] {5};
-    static int[] anotherOne = new int[] {4, 4, 8, 8, 9, 11, 11};
+    static int[] anotherOne = new int[] {4, 8, 8};
     // question 2
 
     static int[] d = new int[] { 1, 4, 45, 6, 0, 19};
@@ -111,7 +111,7 @@ public class Ex14Test
         assertEquals(Ex14.findSingle(a), 12);
         assertEquals(Ex14.findSingle(b), 4);
         assertEquals(Ex14.findSingle(c), 5);
-        assertEquals(Ex14.findSingle(anotherOne), 9);
+        assertEquals(Ex14.findSingle(anotherOne), 4);
     }
 
     @Test
