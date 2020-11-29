@@ -89,6 +89,26 @@ public class Ex14Test
             { false, false, false, false, false },
             { false, false, false, false, false },
         }; // 1
+
+    boolean [][] mat8 =  {
+            { true, false, true, false, false, false, false },
+            { false, false, true, false, false, false, false},
+            { true, false, true, false, false, false, false },
+            { false, false, true, false, false, false, false },
+            { true, false, true, false, false, false, false },
+            { false, false, true, false, false, false, false },
+            { true, false, true, false, false, false, false },
+            { false, false, true, false, false, false, false },
+            { true, false, true, false, false, false, false },
+            { false, false, true, false, false, false, false },
+            { true, false, true, false, false, false, false },
+            { false, false, true, false, false, false, false },
+            { true, false, true, false, false, false, false },
+            { false, false, true, false, false, false, false },
+            { true, false, true, false, false, false, false },
+            { false, false, true, false, true, false, false },
+            { false, false, true, false, true, false, false },
+        }; // 1
     /**
      * Default constructor for test class Ex14Test
      */
@@ -139,6 +159,7 @@ public class Ex14Test
         assertEquals(Ex14.cntTrueReg(mat5), 6);
         assertEquals(Ex14.cntTrueReg(mat6), 3);
         assertEquals(Ex14.cntTrueReg(mat7), 1);
+        assertEquals(Ex14.cntTrueReg(mat8), 10);
     }
 
     /**
