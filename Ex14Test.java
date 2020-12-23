@@ -18,7 +18,7 @@ public class Ex14Test
     static int[] anotherOne = new int[] {4, 8, 8};
     // question 2
 
-    static int[] d = new int[] { 1, 4, 45, 6, 0, 19};
+    static int[] d = new int[] { 1, 4, 45, 6, 0, 19, 12, 23, 42, 32, 11, 23};
     static int dx = 51;
 
     static int[] e = new int[] { 1, 4, 6};
@@ -29,6 +29,15 @@ public class Ex14Test
 
     static int[] g = new int[] {};
     static int gx = 0;
+
+    static int[] h = new int[] {4, 2, 9, 21};
+    static int hx = 6;
+
+    static int[] i = new int[] {12, 122, 99, 201};
+    static int ix = 301;
+
+    static int[] j = new int[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+    static int jx = 54;
 
     // question 4 
     boolean[][] mat1 = 
@@ -91,24 +100,24 @@ public class Ex14Test
         }; // 1
 
     boolean [][] mat8 =  {
-            { true, false, true, false, false, false, false },
-            { false, false, true, false, false, false, false},
-            { true, false, true, false, false, false, false },
-            { false, false, true, false, false, false, false },
-            { true, false, true, false, false, false, false },
-            { false, false, true, false, false, false, false },
-            { true, false, true, false, false, false, false },
-            { false, false, true, false, false, false, false },
-            { true, false, true, false, false, false, false },
-            { false, false, true, false, false, false, false },
-            { true, false, true, false, false, false, false },
-            { false, false, true, false, false, false, false },
-            { true, false, true, false, false, false, false },
-            { false, false, true, false, false, false, false },
-            { true, false, true, false, false, false, false },
-            { false, false, true, false, true, false, false },
-            { false, false, true, false, true, false, false },
-        }; // 1
+            { true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+            { false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false},
+            { true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, true, true },
+            { false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, true },
+            { true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+            { false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+            { true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+            { false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+            { true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+            { false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+            { true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+            { false, false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, false },
+            { true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+            { false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+            { true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+            { false, false, true, false, true, false, false, false, false, false, false, false, false, false, true, false, false },
+            { false, false, true, false, true, false, false, false, false, false, false, false, false, false, false, false, false },
+        }; 
     /**
      * Default constructor for test class Ex14Test
      */
@@ -136,10 +145,13 @@ public class Ex14Test
 
     @Test
     public void question2Tester() {
-        assertEquals(Ex14.smallestSubSum(d, dx), 3);
+        assertEquals(Ex14.smallestSubSum(d, dx), 2);
         assertEquals(Ex14.smallestSubSum(e, ex), -1);
         assertEquals(Ex14.smallestSubSum(f, fx), 1);
         assertEquals(Ex14.smallestSubSum(g, gx), -1);
+        assertEquals(Ex14.smallestSubSum(h, hx), 1);
+        assertEquals(Ex14.smallestSubSum(i, ix), 3);
+        assertEquals(Ex14.smallestSubSum(j, jx), 10);
     }
 
     @Test
@@ -159,7 +171,7 @@ public class Ex14Test
         assertEquals(Ex14.cntTrueReg(mat5), 6);
         assertEquals(Ex14.cntTrueReg(mat6), 3);
         assertEquals(Ex14.cntTrueReg(mat7), 1);
-        assertEquals(Ex14.cntTrueReg(mat8), 10);
+        assertEquals(Ex14.cntTrueReg(mat8), 13);
     }
 
     /**
