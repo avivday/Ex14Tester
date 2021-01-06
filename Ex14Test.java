@@ -2,6 +2,8 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 /**
  * The test class Ex14Test.
@@ -118,6 +120,10 @@ public class Ex14Test
             { false, false, true, false, true, false, false, false, false, false, false, false, false, false, true, false, false },
             { false, false, true, false, true, false, false, false, false, false, false, false, false, false, false, false, false },
         }; 
+    
+    private ByteArrayOutputStream baos;
+    private PrintStream outBackup;
+    
     /**
      * Default constructor for test class Ex14Test
      */
@@ -125,6 +131,33 @@ public class Ex14Test
     {
     }
 
+    private void redirectOutput()
+    {
+        // Create a stream to hold the output
+        baos = new ByteArrayOutputStream();
+        PrintStream ps = new PrintStream(baos);
+        // IMPORTANT: Save the old System.out!
+        if (outBackup == null) outBackup = System.out;
+        // Tell Java to use your special stream
+        System.setOut(ps);
+    }
+    
+    private String readOutput()
+    {
+        if (baos == null) return null;
+    
+        var output = baos.toString(); // Read
+        System.out.flush(); // Clear
+        redirectOutput(); // Recreate stream (making sure it's cleared)
+        return output;
+    }
+    
+    private void restoreOutput()
+    {
+        System.out.flush();
+        System.setOut(outBackup);
+    }
+    
     /**
      * Sets up the test fixture.
      *
@@ -160,6 +193,39 @@ public class Ex14Test
         assertEquals(Ex14.solutions(3), 1);
         assertEquals(Ex14.solutions(32), 0);
         assertEquals(Ex14.solutions(2), 0);
+        
+        String o1,o2,o3,o4,o5;
+    
+        // Check outputs
+        try {
+            redirectOutput();
+    
+            Ex14.solutions(5);
+            o1 = readOutput();
+    
+            Ex14.solutions(3);
+            o2 = readOutput();
+            
+            Ex14.solutions(10);
+            o3 = readOutput();
+            
+            Ex14.solutions(32);
+            o4 = readOutput();
+            
+            Ex14.solutions(2);
+            o5 = readOutput();
+    
+            restoreOutput();
+    
+            assertEquals("1 + 1 + 3\r\n1 + 2 + 2\r\n1 + 3 + 1\r\n2 + 1 + 2\r\n2 + 2 + 1\r\n3 + 1 + 1\r\n", o1);
+            assertEquals("1 + 1 + 1\r\n", o2);
+            assertEquals("1 + 1 + 8\r\n1 + 2 + 7\r\n1 + 3 + 6\r\n1 + 4 + 5\r\n1 + 5 + 4\r\n1 + 6 + 3\r\n1 + 7 + 2\r\n1 + 8 + 1\r\n2 + 1 + 7\r\n2 + 2 + 6\r\n2 + 3 + 5\r\n2 + 4 + 4\r\n2 + 5 + 3\r\n2 + 6 + 2\r\n2 + 7 + 1\r\n3 + 1 + 6\r\n3 + 2 + 5\r\n3 + 3 + 4\r\n3 + 4 + 3\r\n3 + 5 + 2\r\n3 + 6 + 1\r\n4 + 1 + 5\r\n4 + 2 + 4\r\n4 + 3 + 3\r\n4 + 4 + 2\r\n4 + 5 + 1\r\n5 + 1 + 4\r\n5 + 2 + 3\r\n5 + 3 + 2\r\n5 + 4 + 1\r\n6 + 1 + 3\r\n6 + 2 + 2\r\n6 + 3 + 1\r\n7 + 1 + 2\r\n7 + 2 + 1\r\n8 + 1 + 1\r\n", o3);
+            assertEquals("", o4);
+            assertEquals("", o5);
+    
+        } catch (Exception e) {
+            System.out.println("Failed to check question 3 outputs.");
+        }
     }
 
     @Test
