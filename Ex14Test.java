@@ -136,6 +136,15 @@ public class Ex14Test
             {true,  false, false, false, true,  true},
         };
 
+    boolean [][] mat10 = {
+            {true,  false, false, false, true,  true},
+            {true,  false, false, false, false, true},
+            {true,  false, true,  true,  true,  true},
+            {true,  true,  true,  false, false, true},
+            {false, false, true,  false, false, true},
+            {true,  false, true,  true,  true,  true},
+        };
+
     private ByteArrayOutputStream baos;
     private PrintStream outBackup;
     
@@ -262,6 +271,7 @@ public class Ex14Test
         assertEquals(Ex14.cntTrueReg(mat7), 1);
         assertEquals(Ex14.cntTrueReg(mat8), 13);
         assertEquals(Ex14.cntTrueReg(mat9), 2);
+        assertEquals(Ex14.cntTrueReg(mat10), 2);        
     }
 
     /**
