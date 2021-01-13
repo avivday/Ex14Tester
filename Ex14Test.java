@@ -185,7 +185,7 @@ public class Ex14Test
     private int contains(String str, String[] arr)
     {
         int count = 0;
-        for (String s : arr) if (str.contains(s)) count++;
+        for (String s : arr) if (str.replaceAll(" ", "").contains(s.replaceAll(" ", ""))) count++;
         return count;
     }
 
